@@ -12,10 +12,12 @@ public class Player : MonoBehaviour
     public Transform BulletPos;
     public ScoreBoard ScoreBoard;
 
-
-    void Start()
+    private void Awake()
     {
         Instance = this;
+    }
+    void Start()
+    {
     }
 
     void Update()
@@ -57,6 +59,7 @@ public class Player : MonoBehaviour
         for (int i = 0; i < createRandomNumber; i++)
         {
             GameObject obj =ObjectPooler.instance.SpawnFromPool(chooseBullet, BulletPos.transform.position, Quaternion.identity);
+            obj.GetComponent<BulletMovement>().Move();
             ScoreBoard.IncreaseBulletNumber();
             yield return new WaitForSeconds(time);
             obj.SetActive(false);

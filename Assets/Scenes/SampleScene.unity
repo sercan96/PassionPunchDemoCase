@@ -1559,13 +1559,13 @@ MonoBehaviour:
   pools:
   - type: Bullet1
     prefab: {fileID: 7653751985833278503, guid: cf81af16322ccf4479e5e59548af4eb3, type: 3}
-    size: 50
+    size: 10
   - type: Bullet2
     prefab: {fileID: 8402519463599132510, guid: dc38eded698c2934fb300ed2ec76d9e1, type: 3}
-    size: 100
+    size: 10
   - type: Bullet3
     prefab: {fileID: 8402519463599132510, guid: 5f50f803e840e85408ba5b2c2b61e60d, type: 3}
-    size: 100
+    size: 10
   ParentObj: {fileID: 200527703}
 --- !u!4 &1866467724
 Transform:
