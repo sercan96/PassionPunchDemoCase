@@ -6,7 +6,7 @@ using UnityEngine;
 public class BulletMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private GameObject ParticleObject;
+    [SerializeField] private GameObject _particleObject;
     void Start()
     {
         transform.rotation = Player.Instance.BulletPos.rotation;
@@ -26,7 +26,7 @@ public class BulletMovement : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            GameObject particle = Instantiate(ParticleObject,other.transform.position,other.transform.rotation);
+            GameObject particle = Instantiate(_particleObject,other.transform.position,other.transform.rotation);
             Destroy(other.gameObject);
             Destroy(particle,2f);
         }
