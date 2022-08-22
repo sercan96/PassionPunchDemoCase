@@ -6,37 +6,29 @@ using UnityEngine;
 public class BulletMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
-
-    public Rigidbody rigidbody;
-    
-
+    [SerializeField] private GameObject ParticleObject;
     void Start()
     {
-        //transform.rotation = Player.Instance.BulletPos.rotation;
+        transform.rotation = Player.Instance.BulletPos.rotation;
     }
-
-    void OnEnable()
-    {
-        // Debug.Log("Aktifleştim");
-        // transform.position = Player.Instance.BulletPos.position;
-    }
-
-    void OnDisable()
-    {
-        //Debug.Log("Pasifim");
-    }
-
+    
     void Update()
     {
-        //Move();
+        Move();
     }
 
     public void Move()
     {
-        Vector3 sapma = new Vector3(Random.Range(0, 30), 0f, Random.Range(0, 30));
-        //transform.Translate((transform.forward) * Time.deltaTime * _speed,Space.World);
-        transform.DOMove(Player.Instance.BulletPos.forward * 100, 1f);
-        //rigidbody.AddForce(Player.Instance.BulletPos.transform.forward * _speed * Time.deltaTime, ForceMode.Acceleration);
-        //rigidbody.velocity = (transform.forward) * Time.deltaTime * _speed;
+        transform.Translate((transform.forward) * Time.deltaTime * _speed,Space.World);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            GameObject particle = Instantiate(ParticleObject,other.transform.position,other.transform.rotation);
+            Destroy(other.gameObject);
+            Destroy(particle,2f);
+        }
     }
 }
