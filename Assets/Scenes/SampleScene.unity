@@ -1559,7 +1559,7 @@ MonoBehaviour:
   pools:
   - type: Bullet1
     prefab: {fileID: 7653751985833278503, guid: cf81af16322ccf4479e5e59548af4eb3, type: 3}
-    size: 10
+    size: 100
   - type: Bullet2
     prefab: {fileID: 8402519463599132510, guid: dc38eded698c2934fb300ed2ec76d9e1, type: 3}
     size: 10
