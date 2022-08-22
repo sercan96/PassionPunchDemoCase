@@ -46,20 +46,12 @@ public class PlayerMovement : MonoBehaviour
 
     void RotatePlayer()
     {
-        // _playerAngle += Input.GetAxis("Mouse X") * PlayerRotateSpeed * Time.deltaTime;
-        // _playerAngle = Mathf.Clamp(_playerAngle, 0, 180);
-        // transform.localRotation = Quaternion.AngleAxis(_playerAngle, Vector3.up);
-
         Plane plane = new Plane(Vector3.up, transform.position);
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
 
         if (plane.Raycast(ray, out var distance))
             direction = ray.GetPoint(distance);
-
-        // transform.position = Vector3.MoveTowards(transform.position, new Vector3(_direction.x, 0f, _direction.z),
-        //     _playerSpeed * Time.deltaTime);
-
-        // Bugı önlemek için yazdık.
+        
         Vector3 offset = direction - transform.position;
         if (offset.magnitude >= 1)
             transform.LookAt(direction);

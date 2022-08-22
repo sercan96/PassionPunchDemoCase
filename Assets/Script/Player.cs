@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     
     [SerializeField] private float _bulletWaitTime;
     public Animator Animator;
-    public GameObject BulletPrefab;
     public Transform BulletPos;
     public ScoreBoard ScoreBoard;
 
